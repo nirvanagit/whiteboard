@@ -321,10 +321,9 @@ class DeliverablesController < ApplicationController
     end
   end
 
-  #Todo: rename this method
-  #get_assginemments_for_course
-  #shouldn't this be in the assignments controller?
-  def get_assignments_for_student
+  #Renamed this method from #get_assignments_for_student to get_assignments_for_course
+  #Shouldn't this be in the assignments controller?
+  def get_assignments_for_course
     unless params[:course_id].nil?
       @assignments = Course.find(params[:course_id]).assignments.all(:conditions => ["is_submittable = ?", true])
       @assignments_array = @assignments.collect { |assignment| {:assignment => assignment.attributes.merge({:name_with_type => assignment.name_with_type})} }

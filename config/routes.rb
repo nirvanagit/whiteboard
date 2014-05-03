@@ -12,11 +12,10 @@ CMUEducation::Application.routes.draw do
   end
 
   resources :search, :only => [:index]
-  #get    "/deliverables/get_assignments_for_student(.:format)" =>  "deliverables#get_assignments_for_student"
 
   resources :password_resets
 
-  match '/deliverables/get_assignments_for_student(.:format)'=> 'deliverables#get_assignments_for_student' ,:as=> :get_assignments_for_student
+  match '/deliverables/get_assignments_for_course(.:format)'=> 'deliverables#get_assignments_for_course' ,:as=> :get_assignments_for_course
   resources :deliverables
 
   match '/people/:id/my_deliverables' => 'deliverables#my_deliverables', :as => :my_deliverables

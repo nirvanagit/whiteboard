@@ -51,7 +51,7 @@
   $("#deliverable_course_id").change(function(){
       $("#loading").show();
     $.ajax({
-        url: "/deliverables/get_assignments_for_student",
+        url: "/deliverables/get_assignments_for_course",
         type: "get",
         dataType: "json",
         data: {course_id: $("#deliverable_course_id").val()},
